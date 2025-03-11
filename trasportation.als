@@ -44,6 +44,4 @@ fact {
     // Material can only have 1 parent (Vehicle/Location)
 }
 
-fact {}
-
 run example {}
