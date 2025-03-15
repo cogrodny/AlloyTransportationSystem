@@ -50,13 +50,22 @@ fact {
 
 fact {
     // Person can only have 1 parent (Vehicle/Location)
-    all v : Vehicle, l : Location | no (l.people & l.people)
+    all p : Person | lone (p.(~passengers) + p.(~people) + p.(~workers))
+}
+fact {
+    // Material can only have 1 parent (Vehicle/Location)
+    all m : Material | lone (m.(~cargo) + m.(~supplies) + m.(~materials))
 }
 
 fact {
-    // Material can only have 1 parent (Vehicle/Location)
-    
+    // people_needed is always greater than 0
+    all w : Workplace | w.people_needed > 0
 }
+fact {
+    // materials_needed is always greater than 0
+    all w : Workplace | w.materials_needed > 0
+}
+
 
 // Predicates
 pred loadCargo [w: Warehouse, c: CargoVehicle] {
