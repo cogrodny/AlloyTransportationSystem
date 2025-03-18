@@ -105,8 +105,8 @@ pred completeJob [w: Workplace] {
     #w.workers >= w.people_needed
     #w.materials >= w.materials_needed
 
-    Workplace' = Workplace - w
-    Location'  = Location  - w
+    w.workers' = {}
+    w.materials' = {}
 }
 
 // Run
