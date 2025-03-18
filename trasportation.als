@@ -102,6 +102,11 @@ pred unloadPeople [p: PassengerVehicle, w: Workplace, person: Person] {
 
 pred completeJob [w: Workplace] {
     // Deletes Job/Workplace(?) after conditions for job are met
+    #w.workers >= w.people_needed
+    #w.materials >= w.materials_needed
+
+    Workplace' = Workplace - w
+    Location'  = Location  - w
 }
 
 // Run
